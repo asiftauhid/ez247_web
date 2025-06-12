@@ -9,10 +9,19 @@ const ContactUs = () => {
     message: ''
   });
 
-  const handleSubmit = (e: FormEvent) => {
+  const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
-    // Handle form submission logic here
-    console.log('Form submitted:', formData);
+    const response = await fetch('/api/contact', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(formData),
+    });
+    if (response.ok) {
+      alert('Message sent!');
+      setFormData({ name: '', email: '', message: '' });
+    } else {
+      alert('Failed to send message.');
+    }
   };
 
   const emails = [
@@ -24,7 +33,7 @@ const ContactUs = () => {
   ];
 
   return (
-    <section className="py-6 px-4 md:px-8 max-w-6xl mx-auto">
+    <section id="contact" className="py-6 px-4 md:px-8 max-w-6xl mx-auto">
       <div className="flex flex-col md:flex-row gap-8 md:gap-16 items-start">
         {/* Contact Form */}
         <div className="flex-1 w-full md:max-w-lg bg-white rounded-2xl p-5 shadow-lg">
