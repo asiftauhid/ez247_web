@@ -1,102 +1,91 @@
 import Image from "next/image";
+import UseCases from "./elements/usecases";
+import WhyChooseUs from "./elements/whychooseus";
+import Team from "./elements/team";
+import ContactUs from "./elements/contactus";
 
 export default function Home() {
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm/6 text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-[family-name:var(--font-geist-mono)] font-semibold">
-              src/app/page.tsx
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
-
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+    <div className="min-h-screen font-sans bg-white">
+      {/* Header/Navbar */}
+      <header className="fixed top-0 left-0 w-full z-50">
+        <div 
+          className="flex justify-between items-center px-12 py-3"
+          style={{
+            backgroundImage: 'url("/navbar.png")',
+            backgroundSize: 'cover',
+            backgroundPosition: 'center'
+          }}
+        >
+          <div className="flex items-center gap-2">
+            <Image src="/logo.png" alt="EZ247 Logo" width={40} height={40} />
+            <span className="font-bold text-xl tracking-tight text-white">EZ247</span>
+          </div>
+          <nav className="hidden md:flex gap-12 text-lg font-semibold">
+            <a href="#" className="text-white hover:text-blue-200">Home</a>
+            <a href="#products" className="text-white hover:text-blue-200">Products & Use Cases</a>
+            <a href="#team" className="text-white hover:text-blue-200">Team</a>
+            <a href="#contact" className="text-white hover:text-blue-200">Contact</a>
+          </nav>
+          <a href="#" className="ml-4 px-6 py-2 rounded-full bg-white/30 text-white font-semibold shadow hover:bg-white/50 transition border border-white/30">Join Mailing List</a>
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
+      </header>
+
+      {/* Hero Section */}
+      <section className="relative min-h-[600px] flex items-center pt-48 pb-12 px-0 overflow-hidden">
+        {/* Background Image */}
+        <div className="absolute top-0 left-0 w-full z-40">
           <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
+            src="/gradient.png"
+            alt="Background Gradient"
+            width={1920}
+            height={1080}
+            className="w-full transform -translate-y-3"
+            priority
           />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
+        </div>
+        <div className="relative flex flex-col md:flex-row w-full max-w-7xl mx-auto items-start justify-between px-12 z-45">
+          {/* Headline and Subheadline */}
+          <div className="flex-1 pt-8">
+            <h1 className="text-[clamp(2.5rem,7vw,5rem)] font-extrabold leading-[1.05] text-gray-900 mb-6" style={{lineHeight: 1.05}}>
+              Easily<br />Accessible,<br />
+              <span className="text-[#1e40af]">Available 24/7</span>
+            </h1>
+            <p className="text-lg md:text-xl text-gray-700 max-w-xl">
+              EZ247 is a voice-based AI agent that connects users to any service with a single call. No searching—just instant, 24/7 access to the right provider in real time.
+            </p>
+          </div>
+          {/* Video Card with Glassmorphism */}
+          <div className="flex-1 flex justify-end items-start pt-8 mt-12 md:mt-0 md:ml-8">
+            <div className="w-full max-w-xl aspect-video bg-white/60 backdrop-blur-lg rounded-2xl shadow-2xl flex items-center justify-center relative overflow-hidden">
+              <iframe
+                className="w-full h-full rounded-2xl"
+                src="https://www.youtube.com/embed/I4v9hiUpzjU"
+                title="Demo video"
+                frameBorder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowFullScreen
+              ></iframe>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Products & Use Cases */}
+      <UseCases />
+
+      {/* Why Choose Us? */}
+      <WhyChooseUs />
+
+      {/* Team */}
+      <Team />
+
+      {/* Footer with Contact Us */}
+      <footer className="relative w-full py-2">
+        <div className="absolute inset-0 bg-gradient-to-r from-gray-200 to-white" />
+        <div className="relative z-10">
+          <ContactUs />
+        </div>
       </footer>
     </div>
   );
